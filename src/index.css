@@ -1,0 +1,42 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-navy-dark text-brand-light font-sans antialiased overflow-x-hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-navy-dark;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-navy-light/50 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-brand-orange/80;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-brand-orange text-navy-dark rounded-full hover:bg-[#F0A500]/90 transition-all duration-300 font-bold shadow-[0_0_15px_rgba(240,165,0,0.3)] hover:shadow-[0_0_25px_rgba(240,165,0,0.6)];
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px rgba(240, 165, 0, 0.5), 0 0 20px rgba(240, 165, 0, 0.3);
+  }
+}
