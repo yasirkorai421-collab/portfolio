@@ -107,7 +107,7 @@ export default function Projects() {
              viewport={{ once: true }}
              transition={{ delay: 0.6 }}
           >
-            <a href="https://github.com/yasirdev" target="_blank" rel="noreferrer" className="inline-block border-b border-brand-orange text-brand-orange hover:text-white hover:border-white transition-colors pb-1">
+            <a href="https://github.com/yasirkorai421-collab" target="_blank" rel="noreferrer" className="inline-block border-b border-brand-orange text-brand-orange hover:text-white hover:border-white transition-colors pb-1">
               View more on GitHub
             </a>
           </motion.div>
