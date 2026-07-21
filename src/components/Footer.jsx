@@ -23,16 +23,16 @@ export default function Footer() {
           </div>
 
           <div className="flex space-x-6">
-            <a href={import.meta.env.VITE_GITHUB_URL} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-brand-light hover:bg-brand-orange hover:text-navy-dark transition-all duration-300">
+            <a href="https://github.com/yasirkorai421-collab" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-brand-light hover:bg-brand-orange hover:text-navy-dark transition-all duration-300">
               <FaGithub size={20} />
             </a>
-            <a href={import.meta.env.VITE_LINKEDIN_URL} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-brand-light hover:bg-brand-orange hover:text-navy-dark transition-all duration-300">
+            <a href="https://linkedin.com/in/yasirdev" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-brand-light hover:bg-brand-orange hover:text-navy-dark transition-all duration-300">
               <FaLinkedin size={20} />
             </a>
-            <a href={import.meta.env.VITE_FACEBOOK_URL} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-brand-light hover:bg-brand-orange hover:text-navy-dark transition-all duration-300">
+            <a href="https://m.facebook.com/story.php?story_fbid=1002989116029848&substory_index=1002989116029848&id=61591621546190&mibextid=Nif5oz" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-brand-light hover:bg-brand-orange hover:text-navy-dark transition-all duration-300">
               <FaFacebook size={20} />
             </a>
-            <a href={import.meta.env.VITE_WHATSAPP_URL} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-brand-light hover:bg-brand-orange hover:text-navy-dark transition-all duration-300">
+            <a href="https://wa.me/923352267692" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-brand-light hover:bg-brand-orange hover:text-navy-dark transition-all duration-300">
               <FaWhatsapp size={20} />
             </a>
           </div>

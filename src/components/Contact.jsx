@@ -61,7 +61,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h5 className="text-white font-medium mb-1">Email</h5>
-                  <p className="text-brand-muted hover:text-brand-orange transition-colors cursor-pointer">{import.meta.env.VITE_EMAIL}</p>
+                  <p className="text-brand-muted hover:text-brand-orange transition-colors cursor-pointer">hello@yasirdev.com</p>
                 </div>
               </div>
               
@@ -81,7 +81,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h5 className="text-white font-medium mb-1">WhatsApp</h5>
-                  <a href={import.meta.env.VITE_WHATSAPP_URL} target="_blank" rel="noreferrer" className="text-brand-muted hover:text-brand-orange transition-colors cursor-pointer">{import.meta.env.VITE_PHONE}</a>
+                  <a href="https://wa.me/923352267692" target="_blank" rel="noreferrer" className="text-brand-muted hover:text-brand-orange transition-colors cursor-pointer">03352267692</a>
                 </div>
               </div>
             </div>
