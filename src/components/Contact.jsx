@@ -61,7 +61,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h5 className="text-white font-medium mb-1">Email</h5>
-                  <p className="text-brand-muted hover:text-brand-orange transition-colors cursor-pointer">hello@yasirdev.com</p>
+                  <a href="mailto:hello@yasirdev.com" className="text-brand-muted hover:text-brand-orange transition-colors cursor-pointer block">hello@yasirdev.com</a>
                 </div>
               </div>
               
