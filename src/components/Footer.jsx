@@ -22,7 +22,7 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="flex space-x-6">
+          <div className="flex space-x-6 relative z-50 pointer-events-auto">
             <a href="https://github.com/yasirkorai421-collab" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-brand-light hover:bg-brand-orange hover:text-navy-dark transition-all duration-300">
               <FaGithub size={20} />
             </a>
