@@ -42,31 +42,43 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
-            {navLinks.map((link) => (
-              <Link
+            {navLinks.map((link, index) => (
+              <motion.div
                 key={link.name}
-                to={link.to}
-                smooth={true}
-                duration={500}
-                spy={true}
-                activeClass="text-brand-orange font-semibold"
-                className="text-brand-light hover:text-brand-orange cursor-pointer transition-colors duration-200"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                {link.name}
-              </Link>
+                <Link
+                  to={link.to}
+                  smooth={true}
+                  duration={500}
+                  spy={true}
+                  activeClass="text-brand-orange font-semibold"
+                  className="text-brand-light hover:text-brand-orange cursor-pointer transition-colors duration-200 relative group"
+                >
+                  {link.name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-orange group-hover:w-full transition-all duration-300" />
+                </Link>
+              </motion.div>
             ))}
           </div>
 
-          <div className="hidden md:flex">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="hidden md:flex"
+          >
             <Link
               to="contact"
               smooth={true}
               duration={500}
-              className="px-5 py-2 border border-brand-orange text-brand-orange rounded-full hover:bg-brand-orange hover:text-navy-dark transition-all duration-300 font-medium cursor-pointer shadow-[0_0_10px_rgba(240,165,0,0.2)] hover:shadow-[0_0_20px_rgba(240,165,0,0.5)]"
+              className="px-5 py-2 border-2 border-brand-orange text-brand-orange rounded-full hover:bg-brand-orange hover:text-navy-dark transition-all duration-300 font-medium cursor-pointer shadow-[0_0_10px_rgba(240,165,0,0.2)] hover:shadow-[0_0_20px_rgba(240,165,0,0.5)] hover:scale-105 active:scale-95"
             >
               Hire Me
             </Link>
-          </div>
+          </motion.div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">

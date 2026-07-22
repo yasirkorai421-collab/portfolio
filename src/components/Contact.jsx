@@ -22,8 +22,12 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 bg-navy relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-24 bg-navy relative overflow-hidden">
+      {/* Animated background */}
+      <div className="absolute top-0 left-1/2 w-96 h-96 bg-brand-orange/5 rounded-full blur-[120px] animate-pulse" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-orange/5 rounded-full blur-[120px] animate-pulse" style={{animationDelay: '1s'}} />
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="text-center mb-16">
           <motion.div
@@ -34,7 +38,13 @@ export default function Contact() {
           >
             <h2 className="text-brand-orange font-medium tracking-widest uppercase mb-2">Get In Touch</h2>
             <h3 className="text-3xl md:text-4xl font-bold font-heading text-white">Let's Work Together</h3>
-            <div className="w-16 h-1 bg-brand-orange mx-auto mt-6 rounded-full" />
+            <motion.div 
+              initial={{ width: 0 }}
+              whileInView={{ width: 64 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="h-1 bg-brand-orange mx-auto mt-6 rounded-full"
+            />
           </motion.div>
         </div>
 
@@ -55,35 +65,65 @@ export default function Contact() {
             </div>
             
             <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="bg-navy-dark p-3 rounded-lg text-brand-orange shadow-md">
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                whileHover={{ x: 5 }}
+                className="flex items-start gap-4"
+              >
+                <motion.div 
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  className="bg-navy-dark p-3 rounded-lg text-brand-orange shadow-md hover:shadow-brand-orange/30 transition-all"
+                >
                   <Mail size={24} />
-                </div>
+                </motion.div>
                 <div>
                   <h5 className="text-white font-medium mb-1">Email</h5>
                   <a href="mailto:hello@yasirdev.com" className="text-brand-muted hover:text-brand-orange transition-colors cursor-pointer block">hello@yasirdev.com</a>
                 </div>
-              </div>
+              </motion.div>
               
-              <div className="flex items-start gap-4">
-                <div className="bg-navy-dark p-3 rounded-lg text-brand-orange shadow-md">
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                whileHover={{ x: 5 }}
+                className="flex items-start gap-4"
+              >
+                <motion.div 
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  className="bg-navy-dark p-3 rounded-lg text-brand-orange shadow-md hover:shadow-brand-orange/30 transition-all"
+                >
                   <MapPin size={24} />
-                </div>
+                </motion.div>
                 <div>
                   <h5 className="text-white font-medium mb-1">Location</h5>
                   <p className="text-brand-muted">Kot Addu, Pakistan</p>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="flex items-start gap-4">
-                <div className="bg-navy-dark p-3 rounded-lg text-brand-orange shadow-md">
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+                whileHover={{ x: 5 }}
+                className="flex items-start gap-4"
+              >
+                <motion.div 
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  className="bg-navy-dark p-3 rounded-lg text-brand-orange shadow-md hover:shadow-brand-orange/30 transition-all"
+                >
                   <Phone size={24} />
-                </div>
+                </motion.div>
                 <div>
                   <h5 className="text-white font-medium mb-1">WhatsApp</h5>
-                  <a href="https://wa.me/923352267692" target="_blank" rel="noreferrer" className="text-brand-muted hover:text-brand-orange transition-colors cursor-pointer">03352267692</a>
+                  <a href="https://wa.me/923352267692" target="_blank" rel="noopener noreferrer" className="text-brand-muted hover:text-brand-orange transition-colors cursor-pointer">03352267692</a>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
 
@@ -138,14 +178,16 @@ export default function Contact() {
                 ></textarea>
               </div>
               
-              <button
+              <motion.button
                 type="submit"
                 disabled={isSubmitting}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 className="btn-primary w-full sm:w-auto flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
                 {!isSubmitting && <Send size={18} className="group-hover:translate-x-1 transition-transform" />}
-              </button>
+              </motion.button>
             </form>
           </motion.div>
 

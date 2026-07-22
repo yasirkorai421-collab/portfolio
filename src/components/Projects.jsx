@@ -40,8 +40,12 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 bg-navy-dark relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-24 bg-navy-dark relative overflow-hidden">
+      {/* Animated background */}
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-brand-orange/5 rounded-full blur-[120px] animate-pulse" />
+      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-brand-orange/5 rounded-full blur-[120px] animate-pulse" style={{animationDelay: '2s'}} />
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="text-center mb-16">
           <motion.div
@@ -52,7 +56,13 @@ export default function Projects() {
           >
             <h2 className="text-brand-orange font-medium tracking-widest uppercase mb-2">My Work</h2>
             <h3 className="text-3xl md:text-4xl font-bold font-heading text-white">Featured Projects</h3>
-            <div className="w-16 h-1 bg-brand-orange mx-auto mt-6 rounded-full" />
+            <motion.div 
+              initial={{ width: 0 }}
+              whileInView={{ width: 64 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="h-1 bg-brand-orange mx-auto mt-6 rounded-full"
+            />
           </motion.div>
         </div>
 
@@ -63,37 +73,59 @@ export default function Projects() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="group bg-navy rounded-2xl overflow-hidden border border-navy-light/30 hover:border-brand-orange/50 transition-all duration-300 shadow-lg hover:shadow-brand-orange/10 flex flex-col h-full"
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -10 }}
+              className="group bg-navy rounded-2xl overflow-hidden border border-navy-light/30 hover:border-brand-orange/50 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-brand-orange/20 flex flex-col h-full"
             >
               <div className="relative h-48 overflow-hidden">
-                <div className="absolute inset-0 bg-navy-dark/40 group-hover:bg-transparent transition-colors duration-300 z-10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-dark via-navy-dark/60 to-transparent group-hover:from-navy-dark/80 group-hover:via-transparent transition-all duration-500 z-10" />
                 <img 
                   src={project.image} 
                   alt={project.title} 
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                 />
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  className="absolute inset-0 bg-brand-orange/10 z-[5]"
+                />
               </div>
               
               <div className="p-6 flex flex-col flex-grow">
-                <h4 className="text-xl font-bold text-white mb-3 font-heading">{project.title}</h4>
-                <p className="text-brand-muted mb-6 flex-grow">{project.description}</p>
+                <h4 className="text-xl font-bold text-white mb-3 font-heading group-hover:text-brand-orange transition-colors">{project.title}</h4>
+                <p className="text-brand-muted mb-6 flex-grow group-hover:text-brand-light transition-colors">{project.description}</p>
                 
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tags.map(tag => (
-                    <span key={tag} className="text-xs font-medium px-3 py-1 bg-navy-light/50 text-brand-light rounded-full">
+                    <span key={tag} className="text-xs font-medium px-3 py-1 bg-navy-light/50 text-brand-light rounded-full hover:bg-brand-orange hover:text-navy-dark transition-all cursor-default">
                       {tag}
                     </span>
                   ))}
                 </div>
                 
                 <div className="flex items-center gap-4 mt-auto">
-                  <a href={project.github} className="text-brand-muted hover:text-white transition-colors" aria-label="GitHub Repository">
+                  <motion.a 
+                    whileHover={{ scale: 1.2, rotate: 5 }}
+                    whileTap={{ scale: 0.9 }}
+                    href={project.github} 
+                    className="text-brand-muted hover:text-white transition-colors" 
+                    aria-label="GitHub Repository"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <FaGithub size={20} />
-                  </a>
-                  <a href={project.demo} className="text-brand-muted hover:text-brand-orange transition-colors" aria-label="Live Demo">
+                  </motion.a>
+                  <motion.a 
+                    whileHover={{ scale: 1.2, rotate: -5 }}
+                    whileTap={{ scale: 0.9 }}
+                    href={project.demo} 
+                    className="text-brand-muted hover:text-brand-orange transition-colors" 
+                    aria-label="Live Demo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <ExternalLink size={20} />
-                  </a>
+                  </motion.a>
                 </div>
               </div>
             </motion.div>
@@ -102,14 +134,21 @@ export default function Projects() {
         
         <div className="mt-16 text-center">
           <motion.div
-             initial={{ opacity: 0 }}
-             whileInView={{ opacity: 1 }}
+             initial={{ opacity: 0, y: 20 }}
+             whileInView={{ opacity: 1, y: 0 }}
              viewport={{ once: true }}
-             transition={{ delay: 0.6 }}
+             transition={{ delay: 0.4 }}
           >
-            <a href="https://github.com/yasirkorai421-collab" target="_blank" rel="noreferrer" className="inline-block border-b border-brand-orange text-brand-orange hover:text-white hover:border-white transition-colors pb-1">
+            <motion.a 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="https://github.com/yasirkorai421-collab" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="inline-block border-b-2 border-brand-orange text-brand-orange hover:text-white hover:border-white transition-all duration-300 pb-1 font-medium"
+            >
               View more on GitHub
-            </a>
+            </motion.a>
           </motion.div>
         </div>
 

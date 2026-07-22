@@ -27,8 +27,12 @@ const skills = [
 
 export default function About() {
   return (
-    <section id="about" className="py-24 bg-navy relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-24 bg-navy relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute top-0 left-0 w-72 h-72 bg-brand-orange/5 rounded-full blur-[100px] animate-pulse" />
+      <div className="absolute bottom-0 right-0 w-72 h-72 bg-brand-orange/5 rounded-full blur-[100px] animate-pulse" style={{animationDelay: '1.5s'}} />
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="text-center mb-16">
           <motion.div
@@ -39,7 +43,13 @@ export default function About() {
           >
             <h2 className="text-brand-orange font-medium tracking-widest uppercase mb-2">About Me</h2>
             <h3 className="text-3xl md:text-4xl font-bold font-heading text-white">Engineering the Future</h3>
-            <div className="w-16 h-1 bg-brand-orange mx-auto mt-6 rounded-full" />
+            <motion.div 
+              initial={{ width: 0 }}
+              whileInView={{ width: 64 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="h-1 bg-brand-orange mx-auto mt-6 rounded-full"
+            />
           </motion.div>
         </div>
 
@@ -71,18 +81,30 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-navy-dark p-6 rounded-xl border border-navy-light/20 hover:border-brand-orange/50 transition-colors group"
+                whileHover={{ y: -8, scale: 1.02 }}
+                className="bg-navy-dark p-6 rounded-xl border border-navy-light/20 hover:border-brand-orange/50 transition-all duration-300 group hover:shadow-xl hover:shadow-brand-orange/10"
               >
-                <div className="bg-navy p-3 rounded-lg inline-block mb-4 shadow-lg group-hover:shadow-brand-orange/20 transition-all">
+                <motion.div 
+                  whileHover={{ rotate: 360, scale: 1.1 }}
+                  transition={{ duration: 0.5 }}
+                  className="bg-navy p-3 rounded-lg inline-block mb-4 shadow-lg group-hover:shadow-brand-orange/30 transition-all"
+                >
                   {skill.icon}
-                </div>
-                <h4 className="text-white font-bold mb-3 font-heading">{skill.category}</h4>
+                </motion.div>
+                <h4 className="text-white font-bold mb-3 font-heading group-hover:text-brand-orange transition-colors">{skill.category}</h4>
                 <ul className="space-y-2">
-                  {skill.items.map((item) => (
-                    <li key={item} className="text-brand-muted text-sm flex items-center gap-2">
-                      <span className="w-1 h-1 bg-brand-orange rounded-full" />
+                  {skill.items.map((item, i) => (
+                    <motion.li 
+                      key={item} 
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 + i * 0.05 }}
+                      className="text-brand-muted text-sm flex items-center gap-2 group-hover:text-brand-light transition-colors"
+                    >
+                      <span className="w-1 h-1 bg-brand-orange rounded-full group-hover:w-2 group-hover:h-2 transition-all" />
                       {item}
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
               </motion.div>
