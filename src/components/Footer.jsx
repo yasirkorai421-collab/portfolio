@@ -7,7 +7,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-navy-dark border-t border-navy-light/20 pt-16 pb-8 relative z-10">
+    <footer className="bg-navy-dark border-t border-navy-light/20 pt-16 pb-8 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center mb-12">
           
@@ -22,17 +22,41 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="flex space-x-6 relative z-50 pointer-events-auto">
-            <a href="https://github.com/yasirkorai421-collab" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-brand-light hover:bg-brand-orange hover:text-navy-dark transition-all duration-300">
+          <div className="flex space-x-6">
+            <a 
+              href="https://github.com/yasirkorai421-collab" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-brand-light hover:bg-brand-orange hover:text-navy-dark transition-all duration-300 cursor-pointer relative z-50"
+              aria-label="GitHub"
+            >
               <FaGithub size={20} />
             </a>
-            <a href="https://linkedin.com/in/yasirdev" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-brand-light hover:bg-brand-orange hover:text-navy-dark transition-all duration-300">
+            <a 
+              href="https://linkedin.com/in/yasirdev" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-brand-light hover:bg-brand-orange hover:text-navy-dark transition-all duration-300 cursor-pointer relative z-50"
+              aria-label="LinkedIn"
+            >
               <FaLinkedin size={20} />
             </a>
-            <a href="https://m.facebook.com/story.php?story_fbid=1002989116029848&substory_index=1002989116029848&id=61591621546190&mibextid=Nif5oz" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-brand-light hover:bg-brand-orange hover:text-navy-dark transition-all duration-300">
+            <a 
+              href="https://m.facebook.com/story.php?story_fbid=1002989116029848&substory_index=1002989116029848&id=61591621546190&mibextid=Nif5oz" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-brand-light hover:bg-brand-orange hover:text-navy-dark transition-all duration-300 cursor-pointer relative z-50"
+              aria-label="Facebook"
+            >
               <FaFacebook size={20} />
             </a>
-            <a href="https://wa.me/923352267692" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-brand-light hover:bg-brand-orange hover:text-navy-dark transition-all duration-300">
+            <a 
+              href="https://wa.me/923352267692" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-brand-light hover:bg-brand-orange hover:text-navy-dark transition-all duration-300 cursor-pointer relative z-50"
+              aria-label="WhatsApp"
+            >
               <FaWhatsapp size={20} />
             </a>
           </div>
