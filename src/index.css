@@ -7,7 +7,7 @@
   }
   
   body {
-    @apply bg-navy-dark text-brand-light font-sans antialiased overflow-x-hidden;
+    @apply bg-gradient-to-br from-navy-dark via-navy to-navy-dark text-brand-light font-sans antialiased overflow-x-hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -16,27 +16,52 @@
 
   /* Custom Scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 10px;
   }
   ::-webkit-scrollbar-track {
     @apply bg-navy-dark;
   }
   ::-webkit-scrollbar-thumb {
-    @apply bg-navy-light/50 rounded-full;
+    @apply bg-gradient-to-b from-brand-primary to-brand-secondary rounded-full;
   }
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-brand-orange/80;
+    @apply from-brand-secondary to-brand-accent;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply px-6 py-3 bg-brand-orange text-navy-dark rounded-full hover:bg-[#F0A500]/90 transition-all duration-300 font-bold shadow-[0_0_20px_rgba(240,165,0,0.4)] hover:shadow-[0_0_30px_rgba(240,165,0,0.7)];
+    @apply px-6 py-3 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent text-white rounded-full hover:shadow-2xl hover:shadow-brand-primary/50 transition-all duration-300 font-bold relative overflow-hidden;
+  }
+  
+  .btn-primary::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-brand-accent via-brand-primary to-brand-secondary opacity-0 transition-opacity duration-300;
+  }
+  
+  .btn-primary:hover::before {
+    @apply opacity-100;
+  }
+  
+  .card-gradient {
+    @apply bg-gradient-to-br from-navy-light/50 to-navy/50 backdrop-blur-sm;
   }
 }
 
 @layer utilities {
   .text-glow {
-    text-shadow: 0 0 15px rgba(240, 165, 0, 0.6), 0 0 30px rgba(240, 165, 0, 0.4), 0 0 45px rgba(240, 165, 0, 0.2);
+    text-shadow: 0 0 20px rgba(0, 217, 255, 0.8), 0 0 40px rgba(255, 107, 157, 0.6), 0 0 60px rgba(255, 217, 61, 0.4);
+  }
+  
+  .text-glow-cyan {
+    text-shadow: 0 0 20px rgba(0, 217, 255, 0.9), 0 0 40px rgba(0, 217, 255, 0.6);
+  }
+  
+  .text-glow-pink {
+    text-shadow: 0 0 20px rgba(255, 107, 157, 0.9), 0 0 40px rgba(255, 107, 157, 0.6);
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent bg-clip-text text-transparent;
   }
 }

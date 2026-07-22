@@ -22,10 +22,11 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 bg-navy relative overflow-hidden">
+    <section id="contact" className="py-24 bg-gradient-to-b from-navy-dark to-navy relative overflow-hidden">
       {/* Animated background */}
-      <div className="absolute top-0 left-1/2 w-96 h-96 bg-brand-orange/5 rounded-full blur-[120px] animate-pulse" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-orange/5 rounded-full blur-[120px] animate-pulse" style={{animationDelay: '1s'}} />
+      <div className="absolute top-0 left-1/2 w-96 h-96 bg-brand-accent/10 rounded-full blur-[120px] animate-pulse" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-primary/10 rounded-full blur-[120px] animate-pulse" style={{animationDelay: '1s'}} />
+      <div className="absolute top-1/2 left-1/4 w-72 h-72 bg-brand-secondary/10 rounded-full blur-[100px] animate-pulse" style={{animationDelay: '2.5s'}} />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -36,14 +37,14 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-brand-orange font-medium tracking-widest uppercase mb-2">Get In Touch</h2>
-            <h3 className="text-3xl md:text-4xl font-bold font-heading text-white">Let's Work Together</h3>
+            <h2 className="text-brand-accent font-medium tracking-widest uppercase mb-2">Get In Touch</h2>
+            <h3 className="text-3xl md:text-4xl font-bold font-heading gradient-text">Let's Work Together</h3>
             <motion.div 
               initial={{ width: 0 }}
               whileInView={{ width: 64 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="h-1 bg-brand-orange mx-auto mt-6 rounded-full"
+              className="h-1 bg-gradient-to-r from-brand-accent via-brand-primary to-brand-secondary mx-auto mt-6 rounded-full"
             />
           </motion.div>
         </div>
@@ -75,13 +76,13 @@ export default function Contact() {
               >
                 <motion.div 
                   whileHover={{ scale: 1.1, rotate: 5 }}
-                  className="bg-navy-dark p-3 rounded-lg text-brand-orange shadow-md hover:shadow-brand-orange/30 transition-all"
+                  className="bg-gradient-to-br from-brand-primary/20 to-brand-primary/5 backdrop-blur-sm p-3 rounded-lg text-brand-primary shadow-md hover:shadow-brand-primary/30 transition-all border border-brand-primary/20"
                 >
                   <Mail size={24} />
                 </motion.div>
                 <div>
                   <h5 className="text-white font-medium mb-1">Email</h5>
-                  <a href="mailto:hello@yasirdev.com" className="text-brand-muted hover:text-brand-orange transition-colors cursor-pointer block">hello@yasirdev.com</a>
+                  <a href="mailto:hello@yasirdev.com" className="text-brand-muted hover:text-brand-primary transition-colors cursor-pointer block">hello@yasirdev.com</a>
                 </div>
               </motion.div>
               
@@ -95,7 +96,7 @@ export default function Contact() {
               >
                 <motion.div 
                   whileHover={{ scale: 1.1, rotate: 5 }}
-                  className="bg-navy-dark p-3 rounded-lg text-brand-orange shadow-md hover:shadow-brand-orange/30 transition-all"
+                  className="bg-gradient-to-br from-brand-secondary/20 to-brand-secondary/5 backdrop-blur-sm p-3 rounded-lg text-brand-secondary shadow-md hover:shadow-brand-secondary/30 transition-all border border-brand-secondary/20"
                 >
                   <MapPin size={24} />
                 </motion.div>
@@ -115,13 +116,13 @@ export default function Contact() {
               >
                 <motion.div 
                   whileHover={{ scale: 1.1, rotate: 5 }}
-                  className="bg-navy-dark p-3 rounded-lg text-brand-orange shadow-md hover:shadow-brand-orange/30 transition-all"
+                  className="bg-gradient-to-br from-brand-accent/20 to-brand-accent/5 backdrop-blur-sm p-3 rounded-lg text-brand-accent shadow-md hover:shadow-brand-accent/30 transition-all border border-brand-accent/20"
                 >
                   <Phone size={24} />
                 </motion.div>
                 <div>
                   <h5 className="text-white font-medium mb-1">WhatsApp</h5>
-                  <a href="https://wa.me/923352267692" target="_blank" rel="noopener noreferrer" className="text-brand-muted hover:text-brand-orange transition-colors cursor-pointer">03352267692</a>
+                  <a href="https://wa.me/923352267692" target="_blank" rel="noopener noreferrer" className="text-brand-muted hover:text-brand-accent transition-colors cursor-pointer">03352267692</a>
                 </div>
               </motion.div>
             </div>
@@ -134,7 +135,7 @@ export default function Contact() {
             transition={{ duration: 0.6 }}
             className="lg:w-2/3"
           >
-            <form onSubmit={handleSubmit} className="bg-navy-dark p-8 rounded-2xl border border-navy-light/20 shadow-xl">
+            <form onSubmit={handleSubmit} className="card-gradient p-8 rounded-2xl border border-white/10 shadow-xl backdrop-blur-sm">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-brand-muted mb-2">Your Name</label>
@@ -145,7 +146,7 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full bg-navy border border-navy-light/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-colors"
+                    className="w-full bg-navy-dark/50 backdrop-blur-sm border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-colors"
                     placeholder="John Doe"
                   />
                 </div>
@@ -158,7 +159,7 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full bg-navy border border-navy-light/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-colors"
+                    className="w-full bg-navy-dark/50 backdrop-blur-sm border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-colors"
                     placeholder="john@example.com"
                   />
                 </div>
@@ -173,7 +174,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full bg-navy border border-navy-light/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-colors resize-none"
+                  className="w-full bg-navy-dark/50 backdrop-blur-sm border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-colors resize-none"
                   placeholder="How can I help you?"
                 ></textarea>
               </div>

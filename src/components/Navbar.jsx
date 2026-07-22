@@ -54,11 +54,11 @@ export default function Navbar() {
                   smooth={true}
                   duration={500}
                   spy={true}
-                  activeClass="text-brand-orange font-semibold"
-                  className="text-brand-light hover:text-brand-orange cursor-pointer transition-colors duration-200 relative group"
+                  activeClass="text-brand-primary font-semibold"
+                  className="text-brand-light hover:text-brand-primary cursor-pointer transition-colors duration-200 relative group"
                 >
                   {link.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-orange group-hover:w-full transition-all duration-300" />
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary group-hover:w-full transition-all duration-300" />
                 </Link>
               </motion.div>
             ))}
@@ -74,7 +74,7 @@ export default function Navbar() {
               to="contact"
               smooth={true}
               duration={500}
-              className="px-5 py-2 border-2 border-brand-orange text-brand-orange rounded-full hover:bg-brand-orange hover:text-navy-dark transition-all duration-300 font-medium cursor-pointer shadow-[0_0_10px_rgba(240,165,0,0.2)] hover:shadow-[0_0_20px_rgba(240,165,0,0.5)] hover:scale-105 active:scale-95"
+              className="px-5 py-2 border-2 border-brand-primary text-brand-primary rounded-full hover:bg-brand-primary hover:text-white transition-all duration-300 font-medium cursor-pointer shadow-[0_0_15px_rgba(0,217,255,0.3)] hover:shadow-[0_0_25px_rgba(0,217,255,0.6)] hover:scale-105 active:scale-95"
             >
               Hire Me
             </Link>
@@ -108,7 +108,7 @@ export default function Navbar() {
                 smooth={true}
                 duration={500}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-3 py-2 rounded-md text-base font-medium text-brand-light hover:text-brand-orange hover:bg-navy-light/20 cursor-pointer"
+                className="block px-3 py-2 rounded-md text-base font-medium text-brand-light hover:text-brand-primary hover:bg-brand-primary/10 cursor-pointer"
               >
                 {link.name}
               </Link>

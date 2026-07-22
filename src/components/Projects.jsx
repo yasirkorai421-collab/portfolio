@@ -40,10 +40,11 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 bg-navy-dark relative overflow-hidden">
+    <section id="projects" className="py-24 bg-gradient-to-b from-navy to-navy-dark relative overflow-hidden">
       {/* Animated background */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-brand-orange/5 rounded-full blur-[120px] animate-pulse" />
-      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-brand-orange/5 rounded-full blur-[120px] animate-pulse" style={{animationDelay: '2s'}} />
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-brand-secondary/10 rounded-full blur-[120px] animate-pulse" />
+      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-brand-primary/10 rounded-full blur-[120px] animate-pulse" style={{animationDelay: '2s'}} />
+      <div className="absolute top-1/2 right-1/3 w-72 h-72 bg-brand-accent/5 rounded-full blur-[100px] animate-pulse" style={{animationDelay: '4s'}} />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -54,14 +55,14 @@ export default function Projects() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-brand-orange font-medium tracking-widest uppercase mb-2">My Work</h2>
-            <h3 className="text-3xl md:text-4xl font-bold font-heading text-white">Featured Projects</h3>
+            <h2 className="text-brand-secondary font-medium tracking-widest uppercase mb-2">My Work</h2>
+            <h3 className="text-3xl md:text-4xl font-bold font-heading gradient-text">Featured Projects</h3>
             <motion.div 
               initial={{ width: 0 }}
               whileInView={{ width: 64 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="h-1 bg-brand-orange mx-auto mt-6 rounded-full"
+              className="h-1 bg-gradient-to-r from-brand-secondary via-brand-accent to-brand-primary mx-auto mt-6 rounded-full"
             />
           </motion.div>
         </div>
@@ -75,8 +76,9 @@ export default function Projects() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -10 }}
-              className="group bg-navy rounded-2xl overflow-hidden border border-navy-light/30 hover:border-brand-orange/50 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-brand-orange/20 flex flex-col h-full"
+              className="group card-gradient rounded-2xl overflow-hidden border border-white/10 hover:border-brand-primary/50 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-brand-primary/30 flex flex-col h-full relative"
             >
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 via-brand-secondary/5 to-brand-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative h-48 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-dark via-navy-dark/60 to-transparent group-hover:from-navy-dark/80 group-hover:via-transparent transition-all duration-500 z-10" />
                 <img 
@@ -87,17 +89,17 @@ export default function Projects() {
                 <motion.div 
                   initial={{ opacity: 0 }}
                   whileHover={{ opacity: 1 }}
-                  className="absolute inset-0 bg-brand-orange/10 z-[5]"
+                  className="absolute inset-0 bg-gradient-to-br from-brand-primary/20 via-brand-secondary/20 to-brand-accent/20 z-[5]"
                 />
               </div>
               
-              <div className="p-6 flex flex-col flex-grow">
-                <h4 className="text-xl font-bold text-white mb-3 font-heading group-hover:text-brand-orange transition-colors">{project.title}</h4>
+              <div className="p-6 flex flex-col flex-grow relative z-10">
+                <h4 className="text-xl font-bold text-white mb-3 font-heading group-hover:gradient-text transition-colors">{project.title}</h4>
                 <p className="text-brand-muted mb-6 flex-grow group-hover:text-brand-light transition-colors">{project.description}</p>
                 
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tags.map(tag => (
-                    <span key={tag} className="text-xs font-medium px-3 py-1 bg-navy-light/50 text-brand-light rounded-full hover:bg-brand-orange hover:text-navy-dark transition-all cursor-default">
+                    <span key={tag} className="text-xs font-medium px-3 py-1 bg-white/5 backdrop-blur-sm text-brand-light rounded-full border border-white/10 hover:bg-gradient-to-r hover:from-brand-primary/20 hover:to-brand-secondary/20 hover:border-brand-primary/30 transition-all cursor-default">
                       {tag}
                     </span>
                   ))}
@@ -108,7 +110,7 @@ export default function Projects() {
                     whileHover={{ scale: 1.2, rotate: 5 }}
                     whileTap={{ scale: 0.9 }}
                     href={project.github} 
-                    className="text-brand-muted hover:text-white transition-colors" 
+                    className="text-brand-muted hover:text-brand-primary transition-colors" 
                     aria-label="GitHub Repository"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -119,7 +121,7 @@ export default function Projects() {
                     whileHover={{ scale: 1.2, rotate: -5 }}
                     whileTap={{ scale: 0.9 }}
                     href={project.demo} 
-                    className="text-brand-muted hover:text-brand-orange transition-colors" 
+                    className="text-brand-muted hover:text-brand-secondary transition-colors" 
                     aria-label="Live Demo"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -145,7 +147,7 @@ export default function Projects() {
               href="https://github.com/yasirkorai421-collab" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="inline-block border-b-2 border-brand-orange text-brand-orange hover:text-white hover:border-white transition-all duration-300 pb-1 font-medium"
+              className="inline-block border-b-2 border-brand-primary text-brand-primary hover:text-brand-secondary hover:border-brand-secondary transition-all duration-300 pb-1 font-medium"
             >
               View more on GitHub
             </motion.a>

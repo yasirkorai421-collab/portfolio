@@ -9,9 +9,10 @@ export default function Hero() {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-20 pb-12 relative overflow-hidden">
       {/* Enhanced Background Decor with Animation */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-orange/10 rounded-full blur-[120px] pointer-events-none animate-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-navy-light/30 rounded-full blur-[120px] pointer-events-none animate-pulse" style={{animationDelay: '1s'}} />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-navy-dark/50" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-primary/20 rounded-full blur-[120px] pointer-events-none animate-pulse" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-secondary/20 rounded-full blur-[120px] pointer-events-none animate-pulse" style={{animationDelay: '1s'}} />
+      <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-brand-accent/10 rounded-full blur-[100px] pointer-events-none animate-pulse" style={{animationDelay: '2s'}} />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-navy-dark/80" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
@@ -27,7 +28,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-brand-orange font-medium tracking-wider uppercase mb-4 tracking-widest"
+              className="text-brand-primary font-medium tracking-wider uppercase mb-4 tracking-widest"
             >
               Welcome to my portfolio
             </motion.h2>
@@ -37,7 +38,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-5xl md:text-7xl font-bold font-heading text-white mb-6 leading-tight"
             >
-              Hi, I'm <span className="text-glow text-brand-orange inline-block hover:scale-110 transition-transform duration-300 cursor-default">Yasir Korai</span>
+              Hi, I'm <span className="gradient-text text-glow inline-block hover:scale-110 transition-transform duration-300 cursor-default">Yasir Korai</span>
               <br />
               <span className="text-3xl md:text-5xl text-brand-light/80 block mt-4 min-h-[60px]">
                 I build{' '}
@@ -54,7 +55,7 @@ export default function Hero() {
                   ]}
                   wrapper="span"
                   speed={50}
-                  className="text-white font-bold"
+                  className="gradient-text font-bold"
                   repeat={Infinity}
                 />
               </span>
@@ -89,7 +90,7 @@ export default function Hero() {
               <a
                 href="/cv.png"
                 download="Yasir_Korai_CV.png"
-                className="px-6 py-3 border-2 border-brand-light/20 text-brand-light rounded-full hover:bg-brand-light/5 hover:border-brand-orange/50 transition-all duration-300 font-medium w-full sm:w-auto flex items-center justify-center gap-2 hover:scale-105 active:scale-95"
+                className="px-6 py-3 border-2 border-brand-primary/50 text-brand-light rounded-full hover:bg-brand-primary/10 hover:border-brand-primary transition-all duration-300 font-medium w-full sm:w-auto flex items-center justify-center gap-2 hover:scale-105 active:scale-95 backdrop-blur-sm"
               >
                 <Download size={18} />
                 Download CV
@@ -109,24 +110,25 @@ export default function Hero() {
               <motion.div 
                 animate={{ rotate: 360 }}
                 transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 border-4 border-brand-orange/30 rounded-full"
+                className="absolute inset-0 border-4 border-brand-primary/40 rounded-full"
               />
               <motion.div 
                 animate={{ rotate: -360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-4 border-4 border-dashed border-brand-light/20 rounded-full"
+                className="absolute inset-4 border-4 border-dashed border-brand-secondary/30 rounded-full"
               />
               
               {/* Image container with hover effects */}
               <motion.div 
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
-                className="absolute inset-8 bg-gradient-to-br from-navy-light to-navy rounded-full overflow-hidden shadow-2xl shadow-brand-orange/30 border-4 border-brand-orange/50 hover:border-brand-orange transition-colors duration-300"
+                className="absolute inset-8 bg-gradient-to-br from-brand-primary/20 via-brand-secondary/20 to-brand-accent/20 rounded-full overflow-hidden shadow-2xl shadow-brand-primary/30 border-4 border-transparent hover:border-brand-primary transition-all duration-300 relative"
               >
+                 <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/10 to-brand-secondary/10 animate-pulse" />
                  <img 
                    src={profileImage} 
                    alt="Yasir Korai" 
-                   className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700"
+                   className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700 relative z-10"
                  />
               </motion.div>
             </div>
