@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yasir Korai — CV / Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cyan: #00D9FF;
+      --pink: #FF6B9D;
+      --yellow: #FFD93D;
+      --purple: #A78BFA;
+      --navy: #1A1F3A;
+      --navy-dark: #0F1419;
+      --muted: #94A3B8;
+      --light: #F8FAFC;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f4f6f9;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    /* Print button bar — hidden when printing */
+    .print-bar {
+      background: linear-gradient(135deg, var(--navy-dark), var(--navy));
+      color: white;
+      padding: 14px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 20px rgba(0,0,255,0.2);
+    }
+    .print-bar span { font-size: 14px; color: var(--muted); }
+    .print-bar strong { color: var(--cyan); font-family: 'Space Grotesk', sans-serif; font-size: 16px; }
+    .btn-print {
+      background: linear-gradient(135deg, var(--cyan), var(--pink));
+      color: #0F1419;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .btn-print:hover { transform: scale(1.05); box-shadow: 0 4px 20px rgba(0,217,255,0.4); }
+
+    .cv-wrapper {
+      max-width: 860px;
+      margin: 32px auto 60px;
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 60px rgba(0,0,0,0.12);
+    }
+
+    /* Header */
+    .cv-header {
+      background: linear-gradient(135deg, #0F1419 0%, #1A1F3A 50%, #0F1419 100%);
+      padding: 44px 48px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cv-header::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(0,217,255,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .cv-header::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -40px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(255,107,157,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .header-content { display: flex; align-items: center; gap: 32px; position: relative; z-index: 1; }
+    .avatar {
+      width: 100px; height: 100px;
+      border-radius: 50%;
+      border: 3px solid var(--cyan);
+      background: linear-gradient(135deg, var(--cyan), var(--pink));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 36px; font-weight: 700; color: white;
+      font-family: 'Space Grotesk', sans-serif;
+      flex-shrink: 0;
+      box-shadow: 0 0 30px rgba(0,217,255,0.4);
+    }
+    .header-text h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 32px; font-weight: 700;
+      color: white; margin-bottom: 4px;
+    }
+    .header-text h1 span {
+      background: linear-gradient(90deg, var(--cyan), var(--pink));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .header-text .title {
+      color: var(--muted); font-size: 15px; margin-bottom: 16px;
+      font-weight: 500;
+    }
+    .contact-row {
+      display: flex; flex-wrap: wrap; gap: 14px;
+    }
+    .contact-item {
+      display: flex; align-items: center; gap: 6px;
+      color: #cbd5e1; font-size: 13px;
+    }
+    .contact-item a { color: var(--cyan); text-decoration: none; }
+    .contact-item a:hover { text-decoration: underline; }
+    .dot { width: 4px; height: 4px; background: var(--muted); border-radius: 50%; }
+
+    /* Platform badges */
+    .platforms {
+      margin-top: 18px;
+      display: flex; flex-wrap: wrap; gap: 8px;
+      position: relative; z-index: 1;
+    }
+    .platform-badge {
+      padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: 600;
+      border: 1px solid;
+    }
+    .badge-web   { color: var(--cyan);   border-color: rgba(0,217,255,0.4);   background: rgba(0,217,255,0.08); }
+    .badge-android { color: #4ade80; border-color: rgba(74,222,128,0.4); background: rgba(74,222,128,0.08); }
+    .badge-ios   { color: #e2e8f0; border-color: rgba(226,232,240,0.3); background: rgba(226,232,240,0.05); }
+    .badge-win   { color: #38bdf8; border-color: rgba(56,189,248,0.4); background: rgba(56,189,248,0.08); }
+
+    /* Body layout */
+    .cv-body {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+    }
+
+    /* Left column */
+    .cv-main { padding: 40px 40px 40px 48px; border-right: 1px solid #e2e8f0; }
+    .cv-side { padding: 40px 32px; background: #f8fafc; }
+
+    .section { margin-bottom: 36px; }
+    .section:last-child { margin-bottom: 0; }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--cyan); margin-bottom: 16px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-title::after {
+      content: '';
+      flex: 1; height: 1px;
+      background: linear-gradient(90deg, rgba(0,217,255,0.3), transparent);
+    }
+
+    /* Summary */
+    .summary { color: #475569; font-size: 14px; line-height: 1.8; }
+
+    /* Experience / Timeline */
+    .timeline { display: flex; flex-direction: column; gap: 20px; }
+    .timeline-item { display: flex; gap: 16px; }
+    .timeline-dot-col { display: flex; flex-direction: column; align-items: center; }
+    .tl-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--cyan), var(--pink));
+      flex-shrink: 0; margin-top: 4px;
+      box-shadow: 0 0 8px rgba(0,217,255,0.5);
+    }
+    .tl-line { flex: 1; width: 1px; background: linear-gradient(to bottom, rgba(0,217,255,0.3), transparent); margin-top: 4px; }
+    .tl-content { flex: 1; padding-bottom: 4px; }
+    .tl-title { font-weight: 700; font-size: 14px; color: #1e293b; }
+    .tl-company { font-size: 13px; color: var(--cyan); font-weight: 600; margin-bottom: 2px; }
+    .tl-date { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+    .tl-desc { font-size: 13px; color: #475569; line-height: 1.7; }
+    .tl-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+    .tl-tag {
+      font-size: 11px; padding: 2px 8px; border-radius: 999px;
+      background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0;
+    }
+
+    /* Projects */
+    .projects-grid { display: flex; flex-direction: column; gap: 14px; }
+    .project-card {
+      border: 1px solid #e2e8f0; border-radius: 10px;
+      padding: 14px 16px;
+      transition: border-color 0.2s;
+    }
+    .project-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 4px; }
+    .project-name { font-weight: 700; font-size: 14px; color: #1e293b; }
+    .project-links { display: flex; gap: 8px; }
+    .project-link {
+      font-size: 11px; color: var(--cyan);
+      text-decoration: none; padding: 2px 8px;
+      border: 1px solid rgba(0,217,255,0.3);
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .project-link:hover { background: rgba(0,217,255,0.1); }
+    .project-desc { font-size: 12px; color: #64748b; line-height: 1.6; margin-bottom: 8px; }
+
+    /* Sidebar sections */
+    .side-section { margin-bottom: 28px; }
+    .side-section:last-child { margin-bottom: 0; }
+    .side-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--pink); margin-bottom: 12px;
+    }
+
+    /* Skills */
+    .skill-group { margin-bottom: 14px; }
+    .skill-group-name { font-size: 12px; font-weight: 700; color: #334155; margin-bottom: 6px; }
+    .skill-pills { display: flex; flex-wrap: wrap; gap: 5px; }
+    .skill-pill {
+      font-size: 11px; padding: 3px 9px; border-radius: 999px;
+      border: 1px solid #e2e8f0; color: #475569; background: white;
+    }
+
+    /* Education */
+    .edu-item { margin-bottom: 14px; }
+    .edu-deg { font-weight: 700; font-size: 13px; color: #1e293b; }
+    .edu-school { font-size: 12px; color: var(--cyan); margin-bottom: 2px; }
+    .edu-year { font-size: 11px; color: var(--muted); }
+
+    /* Languages */
+    .lang-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    .lang-name { font-size: 13px; color: #334155; font-weight: 500; }
+    .lang-level {
+      font-size: 11px; padding: 2px 8px; border-radius: 999px;
+      background: rgba(0,217,255,0.1); color: var(--cyan);
+      border: 1px solid rgba(0,217,255,0.2);
+    }
+
+    /* Interests */
+    .interests { display: flex; flex-wrap: wrap; gap: 6px; }
+    .interest-tag {
+      font-size: 11px; padding: 3px 10px; border-radius: 999px;
+      background: linear-gradient(135deg, rgba(167,139,250,0.12), rgba(255,107,157,0.08));
+      border: 1px solid rgba(167,139,250,0.25); color: var(--purple);
+    }
+
+    /* Print styles */
+    @media print {
+      body { background: white; }
+      .print-bar { display: none !important; }
+      .cv-wrapper {
+        margin: 0; border-radius: 0;
+        box-shadow: none; max-width: 100%;
+      }
+      .cv-body { grid-template-columns: 1fr 250px; }
+      .btn-print { display: none; }
+      a { color: inherit !important; text-decoration: none !important; }
+    }
+
+    @media (max-width: 700px) {
+      .cv-body { grid-template-columns: 1fr; }
+      .cv-side { border-top: 1px solid #e2e8f0; }
+      .cv-header, .cv-main { padding-left: 24px; padding-right: 24px; }
+      .header-content { flex-direction: column; text-align: center; }
+      .contact-row { justify-content: center; }
+      .platforms { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Print/Save bar -->
+  <div class="print-bar">
+    <div>
+      <strong>Yasir Korai — CV</strong>
+      <span>&nbsp;&nbsp;|&nbsp;&nbsp;Press Ctrl+P (or Cmd+P) to save as PDF</span>
+    </div>
+    <button class="btn-print" onclick="window.print()">⬇ Download as PDF</button>
+  </div>
+
+  <div class="cv-wrapper">
+
+    <!-- Header -->
+    <div class="cv-header">
+      <div class="header-content">
+        <div class="avatar">YK</div>
+        <div class="header-text">
+          <h1>Yasir <span>Korai</span></h1>
+          <p class="title">Full-Stack Developer &nbsp;·&nbsp; Mobile & Desktop App Developer &nbsp;·&nbsp; UI/UX Enthusiast</p>
+          <div class="contact-row">
+            <span class="contact-item">📍 Kot Addu, Punjab, Pakistan</span>
+            <span class="dot"></span>
+            <span class="contact-item">📧 <a href="mailto:yasirkorai421@gmail.com">yasirkorai421@gmail.com</a></span>
+            <span class="dot"></span>
+            <span class="contact-item">📱 <a href="https://wa.me/923352267692">+92 335 2267692</a></span>
+            <span class="dot"></span>
+            <span class="contact-item">🌐 <a href="https://yasir-dev-kot-addu.vercel.app" target="_blank">yasir-dev-kot-addu.vercel.app</a></span>
+            <span class="dot"></span>
+            <span class="contact-item">💻 <a href="https://github.com/yasirkorai421-collab" target="_blank">github.com/yasirkorai421-collab</a></span>
+          </div>
+        </div>
+      </div>
+      <div class="platforms">
+        <span class="platform-badge badge-web">🌐 Web</span>
+        <span class="platform-badge badge-android">🤖 Android</span>
+        <span class="platform-badge badge-ios"> iOS</span>
+        <span class="platform-badge badge-win">🪟 Windows Desktop</span>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class="cv-body">
+
+      <!-- Main column -->
+      <div class="cv-main">
+
+        <!-- Summary -->
+        <div class="section">
+          <div class="section-title">Professional Summary</div>
+          <p class="summary">
+            Passionate and self-driven <strong>Full-Stack Developer</strong> and BSSE student at UET Lahore, operating under the brand <strong>Yasir Dev (YD)</strong>. I specialize in building production-grade web applications, cross-platform mobile apps (Android & iOS with React Native), and Windows desktop applications (Electron & Tauri). My proactive approach involves creating polished live demos for local businesses and pitching directly to clients — turning cold outreach into real projects. I thrive on elegant code, pixel-perfect UIs, and scalable architectures.
+          </p>
+        </div>
+
+        <!-- Experience -->
+        <div class="section">
+          <div class="section-title">Experience & Projects</div>
+          <div class="timeline">
+
+            <div class="timeline-item">
+              <div class="timeline-dot-col">
+                <div class="tl-dot"></div>
+                <div class="tl-line"></div>
+              </div>
+              <div class="tl-content">
+                <div class="tl-company">Yasir Dev (YD) — Freelance</div>
+                <div class="tl-title">Full-Stack Web Developer & App Developer</div>
+                <div class="tl-date">2024 – Present · Kot Addu, Pakistan</div>
+                <div class="tl-desc">Building production-ready web applications, mobile apps, and desktop software for local businesses. Delivering end-to-end solutions from UI design to deployment on Vercel.</div>
+                <div class="tl-tags">
+                  <span class="tl-tag">React</span><span class="tl-tag">Next.js</span>
+                  <span class="tl-tag">React Native</span><span class="tl-tag">Electron</span>
+                  <span class="tl-tag">Node.js</span><span class="tl-tag">Supabase</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot-col">
+                <div class="tl-dot"></div>
+                <div class="tl-line"></div>
+              </div>
+              <div class="tl-content">
+                <div class="tl-company">Personal Projects</div>
+                <div class="tl-title">Web & E-Commerce Platforms</div>
+                <div class="tl-date">2023 – Present</div>
+                <div class="tl-desc">Developed multiple client-facing websites including a cafe website (Leo's Cafe), a fashion e-commerce store, a medical center portal, and a marriage hall booking platform — all live on Vercel.</div>
+                <div class="tl-tags">
+                  <span class="tl-tag">React</span><span class="tl-tag">Tailwind CSS</span>
+                  <span class="tl-tag">Vite</span><span class="tl-tag">Vercel</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot-col">
+                <div class="tl-dot"></div>
+              </div>
+              <div class="tl-content">
+                <div class="tl-company">Cross-Platform Development</div>
+                <div class="tl-title">Mobile & Desktop Applications</div>
+                <div class="tl-date">2024 – Present</div>
+                <div class="tl-desc">Building Android & iOS mobile applications using React Native and Expo, and Windows desktop apps using Electron and Tauri — delivering consistent, native-feeling experiences across all platforms.</div>
+                <div class="tl-tags">
+                  <span class="tl-tag">React Native</span><span class="tl-tag">Expo</span>
+                  <span class="tl-tag">Electron</span><span class="tl-tag">Tauri</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Featured Projects -->
+        <div class="section">
+          <div class="section-title">Featured Projects</div>
+          <div class="projects-grid">
+
+            <div class="project-card">
+              <div class="project-header">
+                <span class="project-name">Fashion Shop — E-Commerce</span>
+                <div class="project-links">
+                  <a class="project-link" href="https://fashion-shop-lac-gamma.vercel.app" target="_blank">Live Demo</a>
+                  <a class="project-link" href="https://github.com/yasirkorai421-collab/fashion-shop" target="_blank">GitHub</a>
+                </div>
+              </div>
+              <p class="project-desc">Sleek online fashion retail platform with product filtering, cart, and responsive UI. Built with React & Tailwind CSS.</p>
+              <div class="tl-tags">
+                <span class="tl-tag">React</span><span class="tl-tag">Tailwind</span><span class="tl-tag">E-Commerce</span>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-header">
+                <span class="project-name">Medical Center Portal</span>
+                <div class="project-links">
+                  <a class="project-link" href="https://medical-center-olive.vercel.app" target="_blank">Live Demo</a>
+                  <a class="project-link" href="https://github.com/yasirkorai421-collab/medical-center" target="_blank">GitHub</a>
+                </div>
+              </div>
+              <p class="project-desc">Healthcare portal for patient management and facility info. Responsive, accessible, and professional.</p>
+              <div class="tl-tags">
+                <span class="tl-tag">React</span><span class="tl-tag">Healthcare</span><span class="tl-tag">Responsive</span>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-header">
+                <span class="project-name">Marriage Hall Booking Platform</span>
+                <div class="project-links">
+                  <a class="project-link" href="https://marriage-hall-datg.vercel.app" target="_blank">Live Demo</a>
+                  <a class="project-link" href="https://github.com/yasirkorai421-collab/marriage-hall" target="_blank">GitHub</a>
+                </div>
+              </div>
+              <p class="project-desc">Premium gallery & booking platform highlighting luxury decor, capacity, and a polished booking flow.</p>
+              <div class="tl-tags">
+                <span class="tl-tag">React</span><span class="tl-tag">Tailwind</span><span class="tl-tag">Booking UI</span>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-header">
+                <span class="project-name">Leo's Cafe Website</span>
+                <div class="project-links">
+                  <a class="project-link" href="https://leo-s-cafe.vercel.app" target="_blank">Live Demo</a>
+                  <a class="project-link" href="https://github.com/yasirkorai421-collab/Leo-s-Cafe" target="_blank">GitHub</a>
+                </div>
+              </div>
+              <p class="project-desc">Modern, interactive cafe website with elegant menu navigation and warm, user-friendly design.</p>
+              <div class="tl-tags">
+                <span class="tl-tag">React</span><span class="tl-tag">UI/UX</span><span class="tl-tag">Business</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Education (in main for print flow) -->
+        <div class="section">
+          <div class="section-title">Education</div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot-col">
+                <div class="tl-dot"></div>
+              </div>
+              <div class="tl-content">
+                <div class="tl-title">Bachelor of Software Engineering (BSSE)</div>
+                <div class="tl-company">University of Engineering & Technology (UET), Lahore</div>
+                <div class="tl-date">2023 – Present</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <div class="cv-side">
+
+        <!-- Tech Stack -->
+        <div class="side-section">
+          <div class="side-title">Tech Stack</div>
+
+          <div class="skill-group">
+            <div class="skill-group-name">🌐 Frontend</div>
+            <div class="skill-pills">
+              <span class="skill-pill">React 19</span>
+              <span class="skill-pill">Next.js 15</span>
+              <span class="skill-pill">TypeScript</span>
+              <span class="skill-pill">Tailwind CSS</span>
+              <span class="skill-pill">Vite</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-name">🤖 Android & iOS</div>
+            <div class="skill-pills">
+              <span class="skill-pill">React Native</span>
+              <span class="skill-pill">Expo</span>
+              <span class="skill-pill">Android</span>
+              <span class="skill-pill">iOS</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-name">🪟 Windows Desktop</div>
+            <div class="skill-pills">
+              <span class="skill-pill">Electron</span>
+              <span class="skill-pill">Tauri</span>
+              <span class="skill-pill">Desktop UI</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-name">⚙️ Backend & DB</div>
+            <div class="skill-pills">
+              <span class="skill-pill">Node.js</span>
+              <span class="skill-pill">Express</span>
+              <span class="skill-pill">PostgreSQL</span>
+              <span class="skill-pill">Prisma ORM</span>
+              <span class="skill-pill">Supabase</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-name">🛠 Tools & DevOps</div>
+            <div class="skill-pills">
+              <span class="skill-pill">Git & GitHub</span>
+              <span class="skill-pill">Vercel</span>
+              <span class="skill-pill">Cloudinary</span>
+              <span class="skill-pill">Figma</span>
+              <span class="skill-pill">REST APIs</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Services -->
+        <div class="side-section">
+          <div class="side-title">Services</div>
+          <div class="skill-pills" style="flex-direction:column; gap:6px;">
+            <span style="font-size:13px; color:#334155;">✅ Web Development</span>
+            <span style="font-size:13px; color:#334155;">✅ Android App Dev</span>
+            <span style="font-size:13px; color:#334155;">✅ iOS App Dev</span>
+            <span style="font-size:13px; color:#334155;">✅ Windows Desktop Apps</span>
+            <span style="font-size:13px; color:#334155;">✅ E-Commerce Platforms</span>
+            <span style="font-size:13px; color:#334155;">✅ UI/UX Design</span>
+            <span style="font-size:13px; color:#334155;">✅ Backend & APIs</span>
+            <span style="font-size:13px; color:#334155;">✅ Business Portals</span>
+          </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="side-section">
+          <div class="side-title">Languages</div>
+          <div class="lang-item">
+            <span class="lang-name">Urdu</span>
+            <span class="lang-level">Native</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">English</span>
+            <span class="lang-level">Professional</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">Punjabi</span>
+            <span class="lang-level">Native</span>
+          </div>
+        </div>
+
+        <!-- Interests -->
+        <div class="side-section">
+          <div class="side-title">Interests</div>
+          <div class="interests">
+            <span class="interest-tag">Open Source</span>
+            <span class="interest-tag">UI Design</span>
+            <span class="interest-tag">App Dev</span>
+            <span class="interest-tag">Freelancing</span>
+            <span class="interest-tag">Tech Entrepreneurship</span>
+          </div>
+        </div>
+
+        <!-- Availability -->
+        <div class="side-section">
+          <div class="side-title">Availability</div>
+          <div style="background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.3); border-radius: 10px; padding: 12px 14px;">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+              <div style="width:8px; height:8px; background:#4ade80; border-radius:50%;"></div>
+              <span style="font-weight:700; font-size:13px; color:#166534;">Open to Work</span>
+            </div>
+            <p style="font-size:12px; color:#64748b; line-height:1.6;">Available for freelance projects, part-time contracts, and collaborations.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
